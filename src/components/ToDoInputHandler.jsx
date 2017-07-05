@@ -1,38 +1,41 @@
 import React, {Component} from "react";
 import TextField from "material-ui/TextField";
-import Checkbox from "material-ui/Checkbox";
+import FlatButton from 'material-ui/FlatButton';
 
-const list = [
-	'doing english homework',
-	'doing test task',
-	'doing smth'
-];
+
 export default class ToDoInputHandler extends Component {
 	constructor() {
 		super()
 		this.state = {
-			list: list,
-			searchValue: null
+			value: null
 		};
-		this.handleChange = this.handleChange.bind(this);
+		this.changeHandler = this.changeHandler.bind(this);
+		this.onClick = this.onClick.bind(this);
 	}
 
-	handleChange(e) {
-		this.setState({searchValue: e.target.value});
+	changeHandler(e) {
+		this.setState({value: e.target.value});
+	}
+
+	onClick() {
+		if (this.state.value) {
+			this.props.addItem(this.state.value);
+		}
 	}
 
 	render() {
-		const {list, searchValue} = this.state;
-		const filteredList = searchValue ? list.filter((i) => {
-			return i.includes(searchValue)
-		}) : list;
+		const {hintText} = this.props;
 		return (
 			<div>
 				<TextField
-					hintText="Enter to do "
-					onChange={this.handleChange}
+					hintText={hintText}
+					onChange={this.changeHandler}
 				/>
-				{filteredList.map((i) => <Checkbox key={i} label={i}/>)}
+				<FlatButton
+					label="ADD"
+					secondary={true}
+					onClick={this.onClick}
+				/>
 			</div>
 		)
 	}
