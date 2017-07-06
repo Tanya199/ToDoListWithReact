@@ -8,9 +8,13 @@ export default class ToDoListItem extends Component {
 	}
 
 	render() {
-		const {label} = this.props;
+		const {label, onCheck, completed} = this.props;
 		return (
-			<Checkbox label={label}/>
+			<Checkbox
+				onCheck={onCheck.bind(this,label)}
+				label={label}
+				checked={completed}
+			/>
 		)
 	}
 }
