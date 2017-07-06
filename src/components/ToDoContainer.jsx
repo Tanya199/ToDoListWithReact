@@ -2,7 +2,9 @@ import React, {Component} from "react";
 import ToDoListItem from './common/ToDoListItem.jsx';
 import ToDoInputHandler from './ToDoInputHandler.jsx';
 import FilteredTabs from './Tabs.jsx';
+const style = {
 
+}
 const list = [
 	{
 		label: 'doing english homework',
@@ -22,7 +24,7 @@ export default class ToDoContainer extends Component {
 	constructor() {
 		super();
 		this.state = {
-			list: list,
+			list: JSON.parse(localStorage.getItem('list')) || [],
 			value: 'all'
 		};
 		this.addItem = this.addItem.bind(this);
@@ -33,7 +35,8 @@ export default class ToDoContainer extends Component {
 	addItem(label) {
 		let list = this.state.list;
 		list.push({label});
-		this.setState({list})
+		this.setState({list});
+		localStorage.setItem('list', JSON.stringify(list));
 	}
 
 	markItemAsCompleted(label) {
@@ -43,7 +46,8 @@ export default class ToDoContainer extends Component {
 				return i.isComplete = !i.isComplete;
 			}
 		});
-		this.setState({list})
+		this.setState({list});
+		localStorage.setItem('list', JSON.stringify(list));
 	}
 
 	filterItemsByTab(value) {

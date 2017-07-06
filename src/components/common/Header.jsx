@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import NavigationClose from 'material-ui/svg-icons/social/cake';
 
 class Header extends React.Component {
 	render() {
@@ -9,7 +9,7 @@ class Header extends React.Component {
 			<AppBar
 				style={{margin: 'auto 0'}}
 				iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-				title={'To Do List'}
+				title={<span style={{justifyContent: 'center'}}>To Do List</span>}
 		/>
 		)
 	}
