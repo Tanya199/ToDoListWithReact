@@ -14,12 +14,7 @@
   "dependencies": {
     "babel-polyfill": "6.8.0",
     "react": "15.0.2",
-    "react-dom": "15.0.2",
-    "react-redux": "4.4.5",
-    "react-router": "2.4.0",
-    "react-router-redux": "4.0.4",
-    "redux": "3.5.2",
-    "redux-thunk": "2.0.1"
+    "react-dom": "15.0.2"
   },
   "devDependencies": {
     "babel-cli": "6.8.0",
@@ -47,7 +42,6 @@
     "npm-run-all": "1.8.0",
     "open": "0.0.5",
     "react-tap-event-plugin": "1.0.0",
-    "redux-immutable-state-invariant": "1.2.3",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.13.0",
