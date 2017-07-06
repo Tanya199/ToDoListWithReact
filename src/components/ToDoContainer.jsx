@@ -55,10 +55,10 @@ export default class ToDoContainer extends Component {
 
 		switch (value) {
 			case 'completed':
-				list = list.filter((i) => !i.isComplete);
+				list = list.filter((i) => i.isComplete);
 				break;
 			case 'uncompleted':
-				list = list.filter((i) => i.isComplete);
+				list = list.filter((i) => !i.isComplete);
 				break;
 			default:
 				list;
